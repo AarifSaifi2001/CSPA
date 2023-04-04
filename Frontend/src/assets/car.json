@@ -1,0 +1,75 @@
+
+[
+  {
+    "id": 1,
+    "name": "Honda",
+    "price": 37562,
+    "image": "fortuner1.jpg",
+    "sellRent": 1,
+    "km": 83423,
+    "modelyear": 2020,
+    "location": "Delhi",
+    "fueltype": "PETROL"
+  },
+
+  {
+    "id": 2,
+    "name": "Bajaj",
+    "price": 37562,
+    "image": "fortuner2.jpg",
+    "sellRent": 2,
+    "km": 83423,
+    "modelyear": 2020,
+    "location": "Delhi",
+    "fueltype": "PETROL"
+  },
+
+  {
+    "id": 3,
+    "name": "Discover",
+    "price": 37562,
+    "image": "fortuner3.jpg",
+    "sellRent": 1,
+    "km": 83423,
+    "modelyear": 2020,
+    "location": "Delhi",
+    "fueltype": "PETROL"
+  },
+
+  {
+    "id": 4,
+    "name": "Pulser",
+    "price": 37562,
+    "image": "fortuner5.jpg",
+    "sellRent": 1,
+    "km": 83423,
+    "modelyear": 2020,
+    "location": "Delhi",
+    "fueltype": "PETROL"
+  },
+
+  {
+    "id": 5,
+    "name": "Royal Enfield",
+    "price": 37562,
+    "image": "fortuner4.jpg",
+    "sellRent": 1,
+    "km": 83423,
+    "modelyear": 2020,
+    "location": "Delhi",
+    "fueltype": "PETROL"
+  },
+
+  {
+    "id": 6,
+    "name": "KTM",
+    "price": 37562,
+    "image": "fortuner1.jpg",
+    "sellRent": 2,
+    "km": 83423,
+    "modelyear": 2020,
+    "location": "Delhi",
+    "fueltype": "PETROL"
+  }
+]
+

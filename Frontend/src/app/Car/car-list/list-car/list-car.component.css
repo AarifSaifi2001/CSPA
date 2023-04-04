@@ -1,0 +1,45 @@
+.btn-block{
+  width: 100%;
+}
+
+.photo-control{
+  min-height: 300px;
+  vertical-align: middle;
+  margin: 5px;
+  text-align: center;
+  border: 1px dashed blue;
+}
+
+.btn-group > label[ng-reflect-btn-radio]{
+  border-radius: 44px;
+  padding: 0 15px;
+  line-height: 30px;
+}
+
+.mrg{
+  margin-right: 8px;
+}
+
+.col-7{
+  margin: auto;
+  margin-left: 5%;
+}
+
+.col-4{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-header > h1, .card-header > h2, .card-header > h3{
+  color: white;
+}
+
+.card-header{
+  height: 42px;
+  padding: 4px 10px !important;
+  background-color: #0069d9;
+}
+
+.red{
+  color: red;
+}

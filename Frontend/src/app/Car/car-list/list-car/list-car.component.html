@@ -1,0 +1,222 @@
+<div class="row mb-5">
+  <div class="col-7 shadow-lg p-3 bg-white">
+    <div class="card m-auto">
+      <div class="card-header">
+        <h3>List your Car</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="addCarForm" (ngSubmit)="onSubmit()">
+
+          <div class="tab-panel">
+            <tabset #static class="member-tabset">
+
+              <tab heading="Basic Info" id="tab1" formGroupName="basicInfo">
+                <div class="form-group col-12">
+                  <p>I Want to</p>
+                  <div class="btn-group" btnRadioGroup formControlName="sellRent">
+                    <label for="" class="btn btn-outline-primary mrg" btnRadio="1" role="button" name="sellRent">Sell</label>
+
+                    <label for="" class="btn btn-outline-primary" btnRadio="2" role="button" name="sellRent">Rent</label>
+                  </div>
+                  <div class="red" *ngIf="SellRent.invalid && (nextClicked || SellRent.touched)">
+                    Please select sell or rent
+                  </div>
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="name" class="form-label">Car Brand</label>
+                  <input type="text" class="form-control" formControlName="carBrand" >
+                  <div class="red" *ngIf="CarBrand.invalid && (nextClicked || CarBrand.touched)">
+                    Please provide brand name
+                  </div>
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="" class="form-label" name="carModel">Car Model</label>
+                  <input type="text" class="form-control" #Name (keyup)="carView.name=Name.value" formControlName="carModel">
+                  <div class="red" *ngIf="CarModel.invalid && (nextClicked || CarModel.touched)">
+                    Please provide model name
+                  </div>
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="" class="form-label" name="modelYear">Model Year</label>
+                  <input type="number" class="form-control" formControlName="modelYear" #modelYear (keyup)="carView.modelyear=+(modelYear.value)">
+                  <div class="red" *ngIf="ModelYear.invalid && (nextClicked || ModelYear.touched)">
+                    Please provide model year
+                  </div>
+                </div>
+                <br>
+                <div class="form-group col-12">
+                  <button type="button" class="btn btn-primary btn-block" (click)="selectTab(1, BasicInfo.valid)">Next</button>
+                </div>
+
+              </tab>
+
+              <tab heading="Price and Car Details" formGroupName="priceAndDetails">
+                <div class="form-group col-12">
+                  <p>Fuel Type</p>
+                  <div class="btn-group" btnRadioGroup name="ftype" formControlName="ftype">
+
+                    <label for="fueltype" class="btn btn-outline-primary mrg" [btnRadio]="fuel.id" name="type" role="button" *ngFor="let fuel of fuelType"
+                    (click)="carView.fueltype=fuel.fuel">
+                      {{fuel.fuel}}
+                    </label>
+
+                  </div>
+                  <div class="red" *ngIf="Ftype.invalid && (nextClicked || Ftype.touched)">
+                    Please select fuel type
+                  </div>
+                </div>
+
+                <div class="form-group col-12">
+                  <p>Body Type</p>
+                  <div class="btn-group" btnRadioGroup formControlName="btype">
+
+                    <label for="" class="btn btn-outline-primary mrg" [btnRadio]="body.id" role="button" name="btype" *ngFor="let body of bodyType">
+                      {{body.body}}
+                    </label>
+
+                  </div>
+                  <div class="red" *ngIf="Btype.invalid && (nextClicked || Btype.touched)">
+                    Please select body type
+                  </div>
+                </div>
+
+                <div class="form-group col-12">
+                  <p>Owner</p>
+                  <div class="btn-group" btnRadioGroup formControlName="owner">
+
+                    <label for="" class="btn btn-outline-primary mrg" [btnRadio]="own" role="button" name="owner" *ngFor="let own of [1,2,3,4,5]">
+                      {{own}}
+                    </label>
+
+                  </div>
+                  <div class="red" *ngIf="Owner.invalid && (nextClicked || Owner.touched)">
+                    Please select owner
+                  </div>
+                </div>
+
+                <div class="form-group col-12">
+                  <label>KM's Drive</label>
+                  <input type="number" class="form-control" placeholder="Kilometers Drive" name="km" formControlName="km"  #KM (keyup)="carView.km=+(KM.value)">
+                  <div class="red" *ngIf="Km.invalid && (nextClicked || Km.touched)">
+                    Please provide kilometers
+                  </div>
+                </div>
+
+                <div class="form-group col-12">
+                  <label *ngIf="SellRent.value == 1">Price</label>
+                  <label *ngIf="SellRent.value == 2">Rent</label>
+                  <input type="number" class="form-control" name="price" #price (keyup)="carView.price=+(price.value)" formControlName="price">
+                  <div class="red" *ngIf="Price.invalid && (nextClicked || Price.touched)">
+                    Please provide
+                    <span *ngIf="SellRent.value == 1; else showrent"> price</span>
+                    <ng-template #showrent> rent</ng-template>
+                  </div>
+                </div>
+                <br>
+                <div class="form-group col-12">
+                  <button type="button" class="btn btn-primary btn-block" (click)="selectTab(2, PriceandDetails.valid)">Next</button>
+                  <br>
+                  <button type="button" class="btn btn-primary btn-block" (click)="selectTab(0, BasicInfo.valid)" style="margin-top: 1.5%;">Back</button>
+                </div>
+              </tab>
+
+              <tab heading="Address & Description" formGroupName="address">
+
+                <div class="form-group col-12">
+                  <label>State</label>
+                  <input type="text" class="form-control" formControlName="state">
+                  <div class="red" *ngIf="State.invalid && (nextClicked || State.touched)">
+                    Please provide state
+                  </div>
+                </div>
+
+                <div class="form-group col-12">
+                  <label>City</label>
+                  <select class="form-control" name="city" formControlName="city" #Citys (change)="carView.location=Citys.options[Citys.options.selectedIndex].text">
+                    <option value=''>--Select City--</option>
+                    <option *ngFor="let city of cities" value="{{city.id}}">{{city.name}}</option>
+                  </select>
+                  <div class="red" *ngIf="City.invalid && (nextClicked || City.touched)">
+                    Please provide city
+                  </div>
+                </div>
+
+                <div class="form-group col-12">
+                  <label>Address</label>
+                  <input type="text" class="form-control" formControlName="address">
+                  <div class="red" *ngIf="Add.invalid && (nextClicked || Add.touched)">
+                    Please provide address
+                  </div>
+                </div>
+
+                <div class="form-group col-12">
+                  <label>Landmark</label>
+                  <input type="text" class="form-control" formControlName="landmark">
+                  <div class="red" *ngIf="LandMark.invalid && (nextClicked || LandMark.touched)">
+                    Please provide landmark
+                  </div>
+                </div>
+
+                <div class="form-group col-12">
+                  <label>Car Description</label>
+                  <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Write your car description" formControlName="carDesc"></textarea>
+                  <div class="red" *ngIf="CarDesc.invalid && (nextClicked || CarDesc.touched)">
+                    Please provide car description
+                  </div>
+                </div>
+
+                <br>
+                  <!-- <div class="form-group col-12 mr-2">
+                    <button type="button" class="btn btn-primary btn-block" (click)="selectTab(3, Address.valid)">Next</button>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-block" (click)="selectTab(1, PriceandDetails.valid)" style="margin-top: 1.5%;">Back</button>
+                  </div> -->
+                  <div class="form-group col-12">
+                    <button type="button" class="btn btn-primary btn-block" (click)="selectTab(1, Address.valid)">Back</button>
+
+                    <button type="reset" class="btn btn-primary btn-block" style="margin-top: 1.5%;">Cancel</button>
+
+                    <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1.5%;">Save</button>
+                  </div>
+              </tab>
+
+              <!-- <tab heading="Photos">
+                <div class="form-group col-12">
+                  <div class="photo-control">
+                      <button class="mt-5" type="file">Upload </button><br>
+                      This is under construction
+                  </div>
+                </div>
+                <br>
+                <div class="form-group col-12">
+                  <button type="button" class="btn btn-primary btn-block" (click)="selectTab(2, Address.valid)">Back</button>
+
+                  <button type="reset" class="btn btn-primary btn-block" style="margin-top: 1.5%;">Cancel</button>
+
+                  <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1.5%;">Save</button>
+                </div>
+              </tab> -->
+
+            </tabset>
+          </div>
+
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4 shodaw-lg p-3">
+      <div class="card-header">
+        <h3 class="text-center">Preview your Car</h3>
+      </div>
+      <div class="shadow-lg p-3 bg-whites">
+        <app-car-card [car]="carView" [hideIcons]="true"></app-car-card>
+      </div>
+  </div>
+</div>
+

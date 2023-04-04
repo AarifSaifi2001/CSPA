@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="search">
+      <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search car name">
+  </div>
+
+
+  <div class="filter">
+    <span><b>Filter :</b></span>&nbsp;&nbsp;
+
+    <input type="radio" name="filter" value="ALL" id="all" [(ngModel)]="selectedRadioButtonValue">&nbsp;
+    <label for="all"><b>All Cars</b></label>&nbsp;&nbsp;
+
+    <input type="radio" name="filter" value="CNG" id="cng" [(ngModel)]="selectedRadioButtonValue">&nbsp;
+    <label for="cng"><b>CNG</b></label>&nbsp;&nbsp;
+
+    <input type="radio" name="filter" value="PETROL"  id="petrol" [(ngModel)]="selectedRadioButtonValue">&nbsp;
+    <label for="petrol"><b>PETROL</b></label>&nbsp;&nbsp;
+
+    <input type="radio" name="filter" value="DIESEL"  id="diesel" [(ngModel)]="selectedRadioButtonValue">&nbsp;
+    <label for="diesel"><b>DIESEL</b></label>&nbsp;&nbsp;
+  </div>
+</div>
+
+<div class="row">
+
+  <ng-container *ngFor="let car of cars">
+
+    <ng-container *ngIf="selectedRadioButtonValue === 'ALL' || selectedRadioButtonValue === car.fueltype ">
+
+      <div class="shadow-lg col-sm-4 p-3" *ngIf="searchText === '' || car.name.toLowerCase().includes(searchText)">
+
+        <app-car-card [car]="car"></app-car-card>
+
+      </div>
+
+    </ng-container>
+
+  </ng-container>
+
+</div>

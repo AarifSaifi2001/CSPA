@@ -1,0 +1,25 @@
+.card{
+  min-height: 550px;
+}
+
+.card img{
+  padding: 10px;
+}
+
+.col-sm-6{
+  margin-right: 8%;
+}
+
+.tab-panel{
+  min-height: 550px;
+}
+
+.ngx-gallery { display: inline-block; margin-bottom: 20px; }
+
+strong{
+  color: silver;
+}
+
+h1{
+  color: #0069d9;
+}

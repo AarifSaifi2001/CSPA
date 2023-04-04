@@ -1,0 +1,93 @@
+.card{
+
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid black; */
+  /* padding: 1.5% 1.5%; */
+  font-weight: bold;
+}
+
+.card-image-wrapper{
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  /* height: 100%; */
+}
+
+.card-image-wrapper img{
+  height: 230px;
+}
+
+/* .bike-name{
+  margin-top: 5%;
+} */
+
+.card :hover img{
+  transform: scale(1.2,1.2);
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  opacity: 0.6;
+}
+
+
+.card img {
+  transform: scale(1,1);
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.members-icon{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -35%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.card-image-wrapper:hover .members-icon{
+  transition-duration: 0.8s;
+  transition-timing-function: ease-in-out;
+  bottom: 0;
+}
+
+.card-image-wrapper .members-icon{
+  transition-duration: 0.8s;
+  transition-timing-function: ease-in-out;
+  bottom: -35%;
+}
+
+.right-m{
+  position: absolute;
+  right: 10%;
+  font-size: 12px;
+}
+
+.km{
+  font-size: 12px;
+}
+
+.right-p{
+  position: absolute;
+  right: 5%;
+}
+
+.car-name{
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  color: #0069d9;
+}
+
+.car-price{
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  color: #0069d9;
+}
+
+/* .card-body{
+  font-family: fantasy;
+  color: #0069d9;
+} */

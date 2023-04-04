@@ -1,0 +1,29 @@
+
+<div class="card">
+  <div class="card-image-wrapper">
+    <img *ngIf="car.photo" class="card-img-top" src="{{car.photo}}" alt="">
+    <img *ngIf="!car.photo" class="card-img-top" src="./assets/images/samplecar.webp" alt="">
+
+    <ul class="list-inline text-center members-icon" *ngIf="!hideIcons">
+      <li class="list-inline-item">
+        <button class="btn btn-primary" routerLink="/car-details/{{car.id}}"><i class="fa-solid fa-circle-info"></i></button>
+      </li>
+      <li class="list-inline-item">
+        <button class="btn btn-primary"><i class="fa-solid fa-phone"></i></button>
+      </li>
+    </ul>
+
+  </div>
+  <div class="card-body p-2">
+    <div class="car-name">{{car.name}}</div>
+    <div class="car-price"><i class="fa-solid fa-indian-rupee-sign"></i>{{car.price}}</div>
+    <span>
+      <span class="km">{{car.km}} KM</span>
+      <span class="right-m">{{car.modelyear}}</span>
+    </span><br>
+    <span>
+      <span><i class="fa-solid fa-location-dot"></i> {{car.location}}</span>
+      <span class="right-p"><i class="fa-sharp fa-solid fa-gas-pump"></i> {{car.fueltype}}</span>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+
+.row{
+  width: 75%;
+  margin: auto;
+
+}
+
+/* .mr-2{
+  margin-left: 2%;
+  margin-top: 2%;
+} */
+
+/* input{
+  width: 250px;
+} */
+
+.container{
+  display: flex;
+  margin-bottom: 2%;
+}
+
+.search{
+  margin: auto;
+}
+
+.filter{
+  margin: auto;
+}
+

@@ -1,0 +1,122 @@
+<div class="row shodow">
+  <div class="col-sm-4 p-0 m-auto">
+    <div class="card">
+
+      <div class="card-img-wrapper">
+        <img *ngIf="mainPhotoUrl" src="{{mainPhotoUrl}}" class="card-img-top" alt="">
+        <img *ngIf="!mainPhotoUrl" src="./assets/images/samplecar.webp" class="card-img-top" alt="">
+      </div>
+
+      <div class="card-body">
+        <h1 class="carTitle">{{details.name }}</h1>
+        <div>
+          <strong>{{details.carbrand}}</strong>
+        </div>
+        <div>
+          <strong>@{{details.price}}</strong>
+        </div> <hr>
+
+        <div>Body Type:<strong> {{details.btype}}</strong></div>
+        <div>Fuel Type:<strong> {{details.fueltype}}</strong></div>
+        <div>Posted On:<strong> {{details.postedon | date}} </strong></div>
+        <div>Available For:
+          <strong *ngIf="details.sellRent == 1"> Purchase</strong>
+          <strong *ngIf="details.sellRent == 2"> Rent</strong>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <div class="btn-group d-flex">
+          <button class="btn btn-primary ">Like</button>
+          <button class="btn btn-success ">Message</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 p-0">
+    <div class="tab-panel p-3">
+      <tabset class="member-tabset">
+        <tab heading="Overview">
+
+          <h1>Overview</h1>
+          <div class="row">
+              <div class="col-sm-5">
+                  <div class="heading">
+                      <strong>Car Name</strong>
+                      <p>{{details.name}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Car Brand</strong>
+                      <p>{{details.carbrand}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Model Year</strong>
+                      <p>{{details.modelyear}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Kilometer Drive</strong>
+                      <p>{{details.km}}</p>
+                  </div>
+              </div>
+
+              <div class="col-sm-7">
+                  <div class="heading">
+                      <strong *ngIf="details.sellRent == 1">Price</strong>
+                      <strong *ngIf="details.sellRent == 2">Rent</strong>
+                      <p>{{details.price}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Body Type</strong>
+                      <p>{{details.btype}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Owner</strong>
+                      <p>{{details.owner}}</p>
+                  </div>
+                  <div class="heading">
+                      <strong>Fuel Type</strong>
+                      <p>{{details.fueltype}}</p>
+                  </div>
+              </div>
+              <div class="col-sm-12">
+                  <div class="heading">
+                      <strong>About Car</strong>
+                      <p>{{details.cardesc}}</p>
+                  </div>
+              </div>
+            </div>
+
+        </tab>
+        <tab heading="Address">
+          <div class="heading">
+            <strong>{{details.address}}</strong> <br>
+            <strong>{{details.location}}</strong> <br>
+            <strong>{{details.state}}</strong>
+          </div>
+          <!-- <agm-map [latitude]=""></agm-map> -->
+        </tab>
+        <tab heading="Photos">
+
+          <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+
+        </tab>
+
+        <tab heading="Upload/Edit Photos" *ngIf="details.postedBy == currentUserId">
+
+          <app-photo-editor [car]="details"
+          (mainPhotoChangedEvent)="changePrimaryPhoto($event)"></app-photo-editor>
+
+        </tab>
+
+        <tab heading="Contact"></tab>
+      </tabset>
+    </div>
+  </div>
+</div>

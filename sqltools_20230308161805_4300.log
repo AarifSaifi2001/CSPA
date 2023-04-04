@@ -1,0 +1,24 @@
+23-03-08 16:18:21.0386662 pid:4300 tid:1 sqltools Critical: 0 : An unhandled exception occurred: System.Reflection.ReflectionTypeLoadException: Unable to load one or more of the requested types.
+Could not load file or assembly 'Microsoft.SqlServer.Migration.SkuRecommendation, Version=0.0.0.0, Culture=neutral, PublicKeyToken=dc5fc6b3805d108a'. Format of the executable (.exe) or library (.dll) is invalid.
+Could not load file or assembly 'Microsoft.SqlServer.Migration.Assessment, Version=0.0.0.0, Culture=neutral, PublicKeyToken=15194179b10d770a'. Format of the executable (.exe) or library (.dll) is invalid.
+Could not load file or assembly 'Microsoft.SqlServer.DataCollection, Version=0.0.0.0, Culture=neutral, PublicKeyToken=dc5fc6b3805d108a'. Format of the executable (.exe) or library (.dll) is invalid.
+Could not load file or assembly 'Microsoft.SqlServer.DataCollection, Version=0.0.0.0, Culture=neutral, PublicKeyToken=dc5fc6b3805d108a'. Format of the executable (.exe) or library (.dll) is invalid.
+Could not load file or assembly 'Microsoft.SqlServer.DataCollection, Version=0.0.0.0, Culture=neutral, PublicKeyToken=dc5fc6b3805d108a'. Format of the executable (.exe) or library (.dll) is invalid.
+Could not load file or assembly 'Microsoft.SqlServer.DataCollection, Version=0.0.0.0, Culture=neutral, PublicKeyToken=dc5fc6b3805d108a'. Format of the executable (.exe) or library (.dll) is invalid.
+Could not load file or assembly 'Microsoft.SqlServer.DataCollection, Version=0.0.0.0, Culture=neutral, PublicKeyToken=dc5fc6b3805d108a'. Format of the executable (.exe) or library (.dll) is invalid.
+Could not load file or assembly 'Microsoft.SqlServer.Migration.Tde, Version=0.0.0.0, Culture=neutral, PublicKeyToken=3ddb4b5bc553b830'. Format of the executable (.exe) or library (.dll) is invalid.
+   at System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
+   at System.Reflection.RuntimeAssembly.get_DefinedTypes()
+   at System.Composition.Hosting.ContainerConfiguration.<>c.<WithAssemblies>b__16_0(Assembly a)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.MoveNext()
+   at System.Composition.TypedParts.TypedPartExportDescriptorProvider..ctor(IEnumerable`1 types, AttributedModelProvider attributeContext)
+   at System.Composition.Hosting.ContainerConfiguration.CreateContainer()
+   at Microsoft.SqlTools.Extensibility.ExtensionStore..ctor(Type contractType, Func`2 configure) in D:\a\_work\1\s\src\Microsoft.SqlTools.Hosting\Extensibility\ExtensionServiceProvider.cs:line 159
+   at Microsoft.SqlTools.Extensibility.ExtensionServiceProvider.EnsureExtensionStoreRegistered[T]() in D:\a\_work\1\s\src\Microsoft.SqlTools.Hosting\Extensibility\ExtensionServiceProvider.cs:line 114
+   at Microsoft.SqlTools.Extensibility.ExtensionServiceProvider.GetServicesImpl[T]() in D:\a\_work\1\s\src\Microsoft.SqlTools.Hosting\Extensibility\ExtensionServiceProvider.cs:line 106
+   at Microsoft.SqlTools.Extensibility.ServiceProviderBase.GetServices[T]() in D:\a\_work\1\s\src\Microsoft.SqlTools.Hosting\Extensibility\IMultiServiceProvider.cs:line 73
+   at Microsoft.SqlTools.ServiceLayer.HostLoader.InitializeHostedServices(RegisteredServiceProvider provider, IProtocolEndpoint host) in D:\a\_work\1\s\src\Microsoft.SqlTools.ServiceLayer\HostLoader.cs:line 193
+   at Microsoft.SqlTools.ServiceLayer.HostLoader.InitializeRequestHandlersAndServices(ServiceHost serviceHost, SqlToolsContext sqlToolsContext) in D:\a\_work\1\s\src\Microsoft.SqlTools.ServiceLayer\HostLoader.cs:line 173
+   at Microsoft.SqlTools.ServiceLayer.HostLoader.CreateAndStartServiceHost(SqlToolsContext sqlToolsContext, Stream inputStream, Stream outputStream) in D:\a\_work\1\s\src\Microsoft.SqlTools.ServiceLayer\HostLoader.cs:line 66
+   at Microsoft.SqlTools.ServiceLayer.Program.Main(String[] args) in D:\a\_work\1\s\src\Microsoft.SqlTools.ServiceLayer\Program.cs:line 53
+System.BadImageFormatException: Could not load file or assembly 'Microsoft.SqlServer.Migration.SkuRecommendation, Version=0.0.0.0, Culture=neutral, PublicKeyToken=dc5fc6b3805d108a'. Format of the executable
